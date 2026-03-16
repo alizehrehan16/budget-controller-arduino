@@ -1,0 +1,55 @@
+Project: Pink Budget Tracker (Arduino) ⋆. 𐙚 ˚
+
+Goal:
+Build a simple embedded system that tracks a running balance using two input buttons and displays the financial “status” using LED indicators.
+
+Hardware Used:
+
+* Arduino UNO R3
+* Breadboard
+* 3 LEDs (Red, Yellow, Green)
+* 3 current-limiting resistors
+* 2 push buttons
+* jumper wires
+
+Pin Mapping
+Green LED  → Pin 11
+Yellow LED → Pin 13
+Red LED    → Pin 12
+
+Expense Button → Pin 2
+Income Button  → Pin 3
+
+Logic:
+The system tracks a variable called “balance”.
+
+Buttons:
+
+* Expense button subtracts money ($10)
+* Income button adds money ($10)
+
+Status thresholds:
+Green  = balance ≥ 70
+Yellow = balance ≥ 30 and < 70
+Red    = balance < 30
+
+Engineering Challenges / Debugging
+
+1. LED Pin Mapping Issue
+   Initially the LEDs did not match the expected color output.
+   This was caused by incorrect pin assignments in the code.
+   A diagnostic LED-testing sketch was used to determine which LED was connected to each pin.
+
+2. Button Debouncing
+   Holding the button caused multiple balance updates.
+   A delay and edge detection approach was used to ensure each press only registers once.
+
+3. Breadboard Button Orientation
+   Buttons initially shorted rows on the breadboard.
+   The solution was to rotate the push buttons so they straddle the breadboard center gap.
+
+Lessons Learned
+
+* Always verify pin mappings with a simple hardware test sketch.
+* Breadboard orientation of push buttons is critical.
+
